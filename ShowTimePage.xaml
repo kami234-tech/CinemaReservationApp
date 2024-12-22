@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CinemaReservationApp.ViewModels"
+             x:Class="CinemaReservationApp.ShowTimePage">
+
+    <ContentPage.BindingContext>
+        <vm:ShowtimeViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10">
+        <Label Text="Select a Showtime" FontSize="24" HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Showtimes}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BackgroundColor="LightGray" CornerRadius="10">
+                        <StackLayout>
+                            <Label Text="{Binding StartTime}" FontSize="18" />
+                            <Label Text="{Binding Location}" FontSize="16" TextColor="DarkGray" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
+
